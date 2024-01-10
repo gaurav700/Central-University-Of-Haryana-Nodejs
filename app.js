@@ -142,13 +142,13 @@ app.set("views", [viewsPath, userViewsPath, userRegistrationPath, userClientPane
 app.get("/", userController.index)
 app.get("/about", userController.about)
 app.get("/schedule", userController.schedule)
-app.get("/contact", userController.contact))
+app.get("/contact", userController.contact)
 app.post("/contact", userController.contactAdd)
 
-app.get("/eventRegistration/:id", userController.eventRegistration))
+app.get("/eventRegistration/:id", userController.eventRegistration)
 app.post("/eventRegistration/:id", upload.single('event[fees]'), userController.eventRegistrationAdd)
 
-app.get("/conferRegistration/:id", userController.conferRegistration))
+app.get("/conferRegistration/:id", userController.conferRegistration)
 app.post("/conferRegistration/:id", upload.single('confer[fees]'), userController.conferRegistrationAdd)
 
 app.get("/webinarRegistration/:id", userController.webinarRegistration)
