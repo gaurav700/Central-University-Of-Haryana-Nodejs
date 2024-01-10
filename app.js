@@ -139,7 +139,7 @@ app.set("views", [viewsPath, userViewsPath, userRegistrationPath, userClientPane
 
 
 /* USER ROUTES STARTS FROM HERE */
-app.get("/index", userController.index)
+app.get("/", userController.index)
 app.get("/about", userController.about)
 app.get("/schedule", wrapAsync(userController.schedule))
 app.get("/contact", wrapAsync(userController.contact))
