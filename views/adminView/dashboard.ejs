@@ -1,0 +1,72 @@
+<% layout("layouts/boilerplateAdmin") -%>
+  <!--dashboard coloumns-->
+  <div class="col-sm-9 col-md-12 wow fadeInUp" style="margin-top:120px;">
+    <div class="row mx-5 text-center">
+      <% if(success && success.length) { %>
+        <div class="row mt-2">
+          <div class="alert alert-success alert-dismissible col-md-6 offset-3" role="alert">
+            <p class="alert-heading">
+              <%= success %>
+            </p>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+        </div>
+        <%}%>
+    
+          <% if(error && error.length) { %>
+            <div class="row mt-2">
+              <div class="alert alert-danger alert-dismissible col-md-6 offset-3" role="alert">
+                <p class="alert-heading">
+                  <%= error %>
+                </p>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+            </div>
+            <%}%>
+      <div class="col-sm-3 mt-5">
+        <div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
+          <div class="card-header">Events</div>
+          <div class="card-body">
+            <h4 class="card-title">
+              <%= totalEvent %>
+            </h4>
+            <a class="btn text-white" href="/eventAdmin">View</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-3 mt-5">
+        <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+          <div class="card-header">Conferences</div>
+          <div class="card-body">
+            <h4 class="card-title">
+              <%= totalConfer %>
+            </h4>
+            <a class="btn text-white" href="/conferAdmin">View</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-3 mt-5">
+        <div class="card text-white bg-info mb-3" style="max-width: 18rem;">
+          <div class="card-header">Workshops</div>
+          <div class="card-body">
+            <h4 class="card-title">
+              <%= totalWorkshop %>
+            </h4>
+            <a class="btn text-white" href="/workshopAdmin">View</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-3 mt-5">
+        <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+          <div class="card-header">Webinar</div>
+          <div class="card-body">
+            <h4 class="card-title">
+              <%= totalWebinar %>
+            </h4>
+            <a class="btn text-white" href="/webinarAdmin">View</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+ 

@@ -1,0 +1,160 @@
+<% layout("layouts/boilerplate") -%>
+    <!-- Breadcrumb Area Start -->
+    <section class="breadcrumb-area bg-img bg-gradient-overlay jarallax"
+        style="background-image: url(img/bg-img/img10.jpg);">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12">
+                    <div class="breadcrumb-content">
+                        <h2 class="page-title">Register Here for Conference </h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="row">
+        <div class="col-12 col-lg-6 mt-5 mb-5 wow fadeInUp">
+            <form class="mx-5" action="/conferRegistration/<%= resultConfer._id %>" method="POST" enctype="multipart/form-data">
+                <form class="mx-5" action="" method="POST">
+                    <div class="form-group">
+                        <div class="form-group">
+                            <label for="inputRequestDescription">Conference Name</label>
+                            <input type="text" class="form-control" id="inputRequestDescription" placeholder="" name="confer[title]"
+                                value="<%= resultConfer.title %>" readonly>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="inputfirst">First Name</label>
+                                <input type="text" class="form-control" id="inputRequestDescription"
+                                    placeholder="First Name" name="confer[fname]">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="inputName"> Last Name</label>
+                                <input type="text" class="form-control" id="inputName" placeholder="Last Name" name="confer[lname]">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputName">College</label>
+                            <input type="text" class="form-control" id="inputName" placeholder="College/University Name"
+                                name="confer[college]">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="inputAddress">Address Line 1</label>
+                                <input type="text" class="form-control" id="inputAddress" placeholder="House No. 123"
+                                    name="confer[add1]">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="inputAddress2">Address Line 2</label>
+                                <input type="text" class="form-control" id="inputAddress2" placeholder="Railway Colony"
+                                    name="confer[add2]">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="inputCity">City</label>
+                                <input type="text" class="form-control" id="inputCity" name="confer[city]">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="inputState">State</label>
+                                <input type="text" class="form-control" id="inputState" name="confer[state]">
+                            </div>
+                            <div class="form-group col-md-2">
+                                <label for="inputZip">Zip</label>
+                                <input type="text" class="form-control" id="inputZip" name="confer[zip]"
+                                    onkeypress="isInputNumber(event)">
+                            </div>
+                        </div>
+    
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="inputEmail">Email</label>
+                                <input type="email" class="form-control" id="inputEmail" name="confer[email]">
+                            </div>
+                            <div class="form-group col-md-2">
+                                <label for="inputMobile">Mobile</label>
+                                <input type="text" class="form-control" id="inputMobile" name="confer[phone]"
+                                    onkeypress="isInputNumber(event)">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="inputFees">Screenshot of Fee payment </label>
+                                <input type="file" class="form-control" id="inputfees" placeholder="Fees" name="confer[fees]">
+                            </div>
+                        </div>
+    
+                        <button type="submit" class="btn btn-success" name="submit">Submit</button>
+                        <button type="reset" class="btn btn-secondary">Reset</button>
+                </form>
+        </div>
+    </div>
+        <div class="col-12 col-lg-6 mt-5 mb-5 wow fadeInUp">
+                <h3 class="text-center">Conference Details</h3>
+                <table class="table table-bordered">
+                   <tbody>
+                    <tr>
+                     <td>Title</td>
+                     <td>
+                      <%= resultConfer.title %>
+                     </td>
+                    </tr>
+                    <tr>
+                     <td>Organiser</td>
+                     <td>
+                         <%= resultConfer.organiser %>
+                     </td>
+                    </tr>
+                    <tr>
+                     <td>From Date- To Date</td>
+                     <td>
+                         <%= formatDate(resultConfer.from_date) %> to
+                         <%= formatDate(resultConfer.to_date) %>
+                     </td>
+                    </tr>
+                    <tr>
+                     <td>Description</td>
+                     <td>
+                         <%= resultConfer.description %>
+                     </td>
+                    </tr>
+                    <tr>
+                     <td>Link</td>
+                     <td>
+                         <%= resultConfer.link %> 
+                     </td>
+                    </tr>
+                    <tr>
+                     <td>Time</td>
+                     <td>
+                         <%= resultConfer.time %>
+                     </td>
+                    </tr>
+                    <tr>
+                     <td>Venue</td>
+                     <td>
+                         <%= resultConfer.venue %>
+                     </td>
+                     </tr>
+                     <tr>
+                      <td>Fees</td>
+                     <td>
+                         <%= resultConfer.fees %>
+                     </td>
+                    </tr>
+                    <tr>
+                     <td>Photo</td>
+                    <td>
+                        <a href="<%= resultConfer.photo.url %>"><img src="<%= resultConfer.photo.url %>" alt="<%= resultConfer.photo.filename %>" height="100px" width="100px"></a>
+                    </td>
+                   </tr>
+                   </tbody>
+                  </table>
+        </div>  <!--end container-->
+    <script>
+        function isInputNumber(evt) {
+            var ch = String.fromCharCode(evt.which);
+            if (!(/[0-9]/.test(ch))) {
+                evt.prconferDefault();
+            }
+        }
+    </script>

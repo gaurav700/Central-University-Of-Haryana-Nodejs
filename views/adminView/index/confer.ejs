@@ -1,0 +1,63 @@
+<% layout("layouts/boilerplateAdmin") -%>
+
+    <div class="col-sm-9 col-md-12 text-center wow fadeInUp" style="margin-top:120px;">
+        <!--Table-->
+        <p class=" bg-dark text-white p-2">List of Conferences</p>
+        <% if(success && success.length) { %>
+          <div class="row mt-2">
+            <div class="alert alert-success alert-dismissible col-md-6 offset-3" role="alert">
+              <p class="alert-heading">
+                <%= success %>
+              </p>
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+          </div>
+          <%}%>
+      
+            <% if(error && error.length) { %>
+              <div class="row mt-2">
+                <div class="alert alert-danger alert-dismissible col-md-6 offset-3" role="alert">
+                  <p class="alert-heading">
+                    <%= error %>
+                  </p>
+                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+              </div>
+              <%}%>
+        <% for(list of result) { %>
+        <div class="single-schedule-area single-page d-flex flex-wrap justify-content-around align-items-center wow fadeInUp"
+            data-wow-delay="300ms">
+            <!-- Single Schedule Thumb and Info -->
+            <div class="single-schedule-tumb-info d-flex align-items-center">
+                <!-- Single Schedule Thumb -->
+                <div class="single-schedule-tumb">
+                    <img src="<%= list.photo.url %>" alt="<%= list.photo.filename %>" style="height: 100px;width: 100px;border-radius: 25%;">
+                </div>
+                <!-- Single Schedule Info -->
+                <div class="single-schedule-info">
+                    <h6><%= list.title %></h6>
+                    <p>organised by <span><%= list.organiser %></span></p>
+                </div>
+            </div>
+            <!-- Single Schedule Info -->
+            <div class="schedule-time-place">
+                <p><i class="zmdi zmdi-time"></i><%= formatDate(list.from_date) %> to <%= formatDate(list.to_date) %> at <%= list.time %></p>
+                <p><i class="zmdi zmdi-map"></i><%= list.venue %></p>
+            </div>
+
+            <div>
+            <!-- Schedule Btn -->
+                    <button class="btn btn-secondary d-inline" ><a href="/registrationConferAdmin/<%= list._id %>"> <i class="fa-solid fa-address-card" style="color:white;"></i></a></button>
+                    <button class="btn btn-primary d-inline" ><a href="/viewConferAdmin/<%= list._id %>"><i class="far fa-eye" style="color:white;"></i></a></button>
+                    <button class="btn btn-success d-inline"><a href="/editConferAdmin/<%= list._id %>"><i class="fas fa-pen" style="color:white;"></i></a></button>
+                    <button class="btn btn-danger d-inline"><a href="/deleteConferAdmin/<%= list._id %>"><i class="far fa-trash-alt" style="color:white;"></i></a></button>
+            </div>
+        </div>
+        <%}%>
+    </div>
+    </div>
+
+    <div><a class="btn btn-success mt-4 wow fadeInUp box" data-wow-delay="100ms" href="/addConferAdmin"><i
+                class="fas fa-plus fa-2x"></i></a>
+    </div>
+    </div>

@@ -1,0 +1,63 @@
+<% layout("layouts/boilerplateAdmin") -%>
+    <div class="col-sm-9 col-md-12 text-center wow fadeInUp" style="margin-top: 120px;">
+        <!-- Table -->
+        <p class="bg-dark text-white p-2">List of Registration in Webinar : <%= result.title %> </p>
+        <% if(success && success.length) { %>
+            <div class="row mt-2">
+              <div class="alert alert-success alert-dismissible col-md-6 offset-3" role="alert">
+                <p class="alert-heading">
+                  <%= success %>
+                </p>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+            </div>
+            <%}%>
+        
+              <% if(error && error.length) { %>
+                <div class="row mt-2">
+                  <div class="alert alert-danger alert-dismissible col-md-6 offset-3" role="alert">
+                    <p class="alert-heading">
+                      <%= error %>
+                    </p>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                  </div>
+                </div>
+                <%}%>
+        <table class="table mt-2">
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Phone</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">College</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <% for(list of result.registrations) { %>
+                    <tr>
+                        <td>
+                            <%= list.fname %> &nbsp;
+                            <%= list.lname %> 
+                        </td>
+                        <td>
+                          <%= list.email %>
+                      </td>
+                      <td>
+                        <%= list.phone %>
+                      </td>
+                        <td>
+                            <%= list.add1 %>, &nbsp; <%= list.add2 %>,  &nbsp; <%= list.city %>, &nbsp; <%= list.state %>, &nbsp; <%= list.zip %>
+                        </td>
+                        <td>
+                            <%= list.college %>
+                        </td>
+                    </tr>
+                    <% } %>
+            </tbody>
+        </table>
+
+    </div>
+    </div>
+    </div>

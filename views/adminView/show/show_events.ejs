@@ -1,0 +1,70 @@
+<% layout("layouts/boilerplateAdmin") -%>
+
+<div class="col-sm-12 mx-3" style="margin-top:120px;">
+ <h3 class="text-center">View Events Details</h3>
+
+ <table class="table table-bordered">
+  <tbody>
+   <tr>
+    <td>Title</td>
+    <td>
+     <%= showEvent.title %>
+    </td>
+   </tr>
+   <tr>
+    <td>Organiser</td>
+    <td>
+        <%= showEvent.organiser %>
+    </td>
+   </tr>
+   <tr>
+    <td>From Date- To Date</td>
+    <td>
+        <%= formatDate(showEvent.from_date) %> to
+        <%= formatDate(showEvent.to_date) %>
+    </td>
+   </tr>
+   <tr>
+    <td>Description</td>
+    <td>
+        <%= showEvent.description %>
+    </td>
+   </tr>
+   <tr>
+    <td>Link</td>
+    <td>
+        <%= showEvent.link %> 
+    </td>
+   </tr>
+   <tr>
+    <td>Time</td>
+    <td>
+        <%= showEvent.time %>
+    </td>
+   </tr>
+   <tr>
+    <td>Venue</td>
+    <td>
+        <%= showEvent.venue %>
+    </td>
+	</tr>
+	<tr>
+	 <td>Fees</td>
+    <td>
+        <%= showEvent.fees %>
+    </td>
+   </tr>
+   <tr>
+    <td>Photo</td>
+   <td>
+       <img src="<%= showEvent.photo.url %>" alt="<%= showEvent.photo.filename %>" height="100px" width="100px">
+   </td>
+  </tr>
+  </tbody>
+ </table>
+ <div class="text-center">
+  <form class='d-print-none d-inline mr-3'><input class='btn btn-success' type='submit' value='Print' onClick='window.print()'></form>
+  <form class='d-print-none d-inline' action="/eventAdmin"><input class='btn btn-secondary' type='submit' value='Close'></form>
+ </div>
+</div>
+

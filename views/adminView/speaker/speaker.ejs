@@ -1,0 +1,37 @@
+<% layout("layouts/boilerplateAdmin") -%>
+    <div class="col-sm-9 col-md-12 text-center wow fadeInUp" style="margin-top: 120px;">
+        <!-- Table -->
+        <p class="bg-dark text-white p-2">List of Speakers </p> 
+        
+        <div class="row">
+            <% for(list of speakerList) { %>
+            <div class="col-12 col-sm-6 col-lg-4">
+                <div class="single-speaker-area bg-gradient-overlay-2 wow fadeInUp" data-wow-delay="100ms">
+                    <!-- Thumb -->
+                    <div class="speaker-single-thumb">
+                        <img src="<%= list.photo.url %>" alt="<%= list.photo.filename %>">
+                    </div>
+                    <!-- Social Info -->
+                    <div class="social-info">
+                        <a href="<%= list.facebook %>"><i class="zmdi zmdi-facebook"></i></a>
+                        <a href="<%= list.instagram %>"><i class="zmdi zmdi-instagram"></i></a>
+                        <a href="<%= list.twitter %>"><i class="zmdi zmdi-twitter"></i></a>
+                        <a href="<%= list.linkedin %>"><i class="zmdi zmdi-linkedin"></i></a>
+                        <a href="/speakerDelete/<%= list._id %>"><i class="far fa-trash-alt"></i></a>
+                    </div>
+                    <!-- Info -->
+                    <div class="speaker-info">
+                        <h5><%= list.name %></h5>
+                        <p><%= list.founder %></p>
+                    </div>
+                </div>
+            </div><%}%>
+        </div>
+     
+    </div>
+    </div>
+    <div><a class="btn btn-success mt-4 wow fadeInUp box" data-wow-delay="100ms" href="/addSpeaker"><i
+        class="fas fa-plus fa-2x"></i></a>
+</div>
+    </div>
+    <!-- Our Speakings Area Start -->

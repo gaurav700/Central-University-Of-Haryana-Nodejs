@@ -1,0 +1,72 @@
+<% layout("layouts/boilerplateAdmin") -%>
+
+<div class="col-sm-12 mx-3" style="margin-top:120px;">
+ <h3 class="text-center">View Workshop Details</h3>
+
+ <table class="table table-bordered">
+    <tbody>
+     <tr>
+      <td>Title</td>
+      <td>
+       <%= showWorkshop.title %>
+      </td>
+     </tr>
+     <tr>
+      <td>Organiser</td>
+      <td>
+          <%= showWorkshop.organiser %>
+      </td>
+     </tr>
+     <tr>
+      <td>From Date- To Date</td>
+      <td>
+          <%= formatDate(showWorkshop.from_date) %> to
+          <%= formatDate(showWorkshop.to_date) %>
+      </td>
+     </tr>
+     <tr>
+      <td>Description</td>
+      <td>
+          <%= showWorkshop.description %>
+      </td>
+     </tr>
+     <tr>
+      <td>Link</td>
+      <td>
+          <%= showWorkshop.link %> 
+      </td>
+     </tr>
+     <tr>
+      <td>Time</td>
+      <td>
+          <%= showWorkshop.time %>
+      </td>
+     </tr>
+     <tr>
+      <td>Venue</td>
+      <td>
+          <%= showWorkshop.venue %>
+      </td>
+      </tr>
+      <tr>
+       <td>Fees</td>
+      <td>
+          <%= showWorkshop.fees %>
+      </td>
+     </tr>
+     <tr>
+      <td>Photo</td>
+     <td>
+         <img src="<%= showWorkshop.photo.url %>" alt="<%= showWorkshop.photo.filename %>" height="100px" width="100px">
+     </td>
+    </tr>
+    </tbody>
+   </table>
+ </table>
+ <div class="text-center">
+  <form class='d-print-none d-inline mr-3'><input class='btn btn-success' type='submit' value='Print' onClick='window.print()'></form>
+  <form class='d-print-none d-inline' action="/workshopAdmin"><input class='btn btn-secondary' type='submit' value='Close'></form>
+ </div>
+</div>
+
+

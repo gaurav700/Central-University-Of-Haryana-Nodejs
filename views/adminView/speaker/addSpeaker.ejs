@@ -1,0 +1,40 @@
+<% layout("layouts/boilerplateAdmin") -%>
+  <div class="col-sm-12 mx-3 jumbotron mt-5">
+    <h3 class="text-center">Add Speaker</h3>
+    <form action="/addSpeaker" class="needs-validation" novalidate method="POST" enctype="multipart/form-data">
+      <div class="form-group">
+        <label for="organiser">Name</label>
+        <input type="text" class="form-control" id="organiser" name="speaker[name]">
+      </div>
+      <div class="form-group">
+        <label for="from_date">Founder</label>
+        <input type="text" class="form-control" id="from_date" name="speaker[founder]">
+      </div>
+      <div class="form-group">
+        <label for="venue">LinKedIn</label>
+        <input type="text" class="form-control" id="venue" name="speaker[linkedin]">
+      </div>
+      <div class="form-group">
+        <label for="link">Instagram</label>
+        <input type="text" class="form-control" id="link" name="speaker[instagram]">
+      </div>
+      <div class="form-group">
+        <label for="photo">Twitter</label>
+        <input type="text" class="form-control" id="photo" name="speaker[twitter]">
+      </div>
+      <div class="form-group">
+        <label for="description">Facebook</label>
+        <input type="text" class="form-control" id="description" name="speaker[facebook]">
+      </div>
+      <div class="form-group">
+        <label for="fees">Photo</label>
+        <input type="file" class="form-control" id="fees" name="speaker[photo]">
+      </div>
+      <div class="text-center">
+        <button type="submit" class="btn confer-btn mt-4 wow fadeInUp" data-wow-delay="100ms" id="submit"
+          name="submit">Submit</button>
+        <button class="btn confer-btn mt-4 wow fadeInUp" data-wow-delay="100ms" id="submit" name="submit"><a
+            href="/speakers">Close</a></button>
+      </div>
+    </form>
+  </div>

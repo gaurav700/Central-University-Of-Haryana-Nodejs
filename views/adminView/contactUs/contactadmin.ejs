@@ -1,0 +1,66 @@
+<% layout("layouts/boilerplateAdmin") -%>
+    <div class="col-sm-9 col-md-12 text-center wow fadeInUp" style="margin-top: 120px;">
+        <!-- Table -->
+        <p class="bg-dark text-white p-2">General Inquire</p>
+        <% if(success && success.length) { %>
+            <div class="row mt-2">
+              <div class="alert alert-success alert-dismissible col-md-6 offset-3" role="alert">
+                <p class="alert-heading">
+                  <%= success %>
+                </p>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+            </div>
+            <%}%>
+        
+              <% if(error && error.length) { %>
+                <div class="row mt-2">
+                  <div class="alert alert-danger alert-dismissible col-md-6 offset-3" role="alert">
+                    <p class="alert-heading">
+                      <%= error %>
+                    </p>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                  </div>
+                </div>
+                <%}%>
+        <table class="table mt-2">
+            <thead>
+                <tr>
+                    <th scope="col">First</th>
+                    <th scope="col">Last</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Phone</th>
+                    <th scope="col">Operation</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for(list of contactList) { %>
+                    <tr>
+                        <td>
+                            <%= list.fname %>
+                        </td>
+                        <td>
+                            <%= list.lname %>
+                        </td>
+                        <td>
+                            <%= list.email %>
+                        </td>
+                        <td>
+                            <%= list.phone %>
+                        </td>
+                        <td>
+                            <button class="btn btn-secondary"><a href="/showContact/<%= list._id %>"><i
+                                        style="color:white;" class="fa-solid fa-eye"></i></a></button>
+                            <button class="btn btn-primary"><a href="/replyContact/<%= list._id %>"><i
+                                        style="color:white;" class="fa-solid fa-reply"></i></a></button>
+                            <button class="btn btn-danger"><a href="/deleteContact/<%= list._id %>"><i
+                                        style="color:white;" class="fa-solid fa-trash"></i></a></button>
+                        </td>
+                    </tr>
+                    <% } %>
+            </tbody>
+        </table>
+
+    </div>
+    </div>
+    </div>

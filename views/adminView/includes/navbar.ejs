@@ -1,0 +1,119 @@
+
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="loader"></div>
+    </div>
+    <!-- /Preloader -->
+
+    <!-- Header Area Start -->
+    <header class="header-area">
+        <div class="classy-nav-container breakpoint-off">
+            <div class="container">
+                <!-- Classy Menu -->
+                <nav class="navbar navbar-expand-lg navbar-light justify-content-between" id="conferNav">
+
+                    <!-- Logo -->
+                    <a class="navbar-brand" href="./index.php"><img src="../img/bg-img/img9.png" alt=""
+                            style="height: 70px; width: 350px;"></a>
+
+                    <!-- Navbar Toggler -->
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <!-- Menu -->
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <!-- Nav Start -->
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/dashboard">
+                                    <i class="fas fa-tachometer-alt"></i>
+                                    Dashboard
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/speakers">
+                                    <i class="fas fa-id-card-alt"></i>
+                                    Speakers
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/eventAdmin">
+                                    <i class="far fa-calendar-alt"></i>
+                                    Events
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/conferAdmin">
+                                    <i class="fas fa-database"></i>
+                                    Confer
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/webinarAdmin">
+                                    <i class="fab fa-teamspeak"></i>
+                                    Webinar
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/workshopAdmin">
+                                    <i class="fas fa-users"></i>
+                                    Workshops
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/contactAdmin">
+                                    <i class="fas fa-id-card-alt"></i>
+                                    Contact Us
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/changePassword">
+                                    <i class="fas fa-key"></i>
+                                    Change Password
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/logout">
+                                    <i class="fas fa-sign-out-alt"></i>
+                                    Logout
+                                </a>
+                            </li>
+                        </ul>
+                        <!-- Nav End -->
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <!-- Header Area End -->
+
+    <!-- Side Bar -->
+    <div class="container mb-5">
+        <div class="row">
+
+
+    <script>
+        // Toggle sidebar into navbar on small screens
+        $(document).ready(function () {
+            if ($(window).width() < 768) {
+                $('#sidebar').removeClass('d-print-none'); // Show sidebar on small screens
+                $('#navbarNav').addClass('d-print-none'); // Hide navbar on small screens
+            } else {
+                $('#sidebar').addClass('d-print-none'); // Hide sidebar on larger screens
+                $('#navbarNav').removeClass('d-print-none'); // Show navbar on larger screens
+            }
+        });
+
+        $(window).resize(function () {
+            if ($(window).width() < 768) {
+                $('#sidebar').removeClass('d-print-none');
+                $('#navbarNav').addClass('d-print-none');
+            } else {
+                $('#sidebar').addClass('d-print-none');
+                $('#navbarNav').removeClass('d-print-none');
+            }
+        });
+    </script>
+

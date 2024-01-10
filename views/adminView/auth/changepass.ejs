@@ -1,0 +1,21 @@
+<% layout("layouts/boilerplateAdmin") -%>
+
+  <div class="col-sm-9 col-md-12" style="margin-top:80px;">
+    <div class="row">
+      <div class="col-sm-6">
+        <form class="mt-5 mx-5" action="/changePassword/<%= userInfo._id %>" method="post">
+          <div class="form-group">
+            <label for="inputEmail">Email</label>
+            <input type="email" class="form-control" id="inputEmail" name ="email" value="<%= userInfo.email %>" readonly>
+          </div>
+          <div class="form-group">
+            <label for="inputnewpassword">New Password</label>
+            <input type="text" class="form-control" id="inputnewpassword" placeholder="******" name="password">
+          </div>
+          <button type="submit" class="btn confer-btn mt-10 wow fadeInUp" name="passupdate" data-wow-delay="100ms">
+            Update</button>
+          <button type="reset" class="btn confer-btn mt-10 wow fadeInUp" data-wow-delay="100ms"> Reset</button>
+        </form>
+      </div>
+    </div>
+  </div>
