@@ -141,21 +141,21 @@ app.set("views", [viewsPath, userViewsPath, userRegistrationPath, userClientPane
 /* USER ROUTES STARTS FROM HERE */
 app.get("/", userController.index)
 app.get("/about", userController.about)
-app.get("/schedule", wrapAsync(userController.schedule))
-app.get("/contact", wrapAsync(userController.contact))
-app.post("/contact", wrapAsync(userController.contactAdd))
+app.get("/schedule", userController.schedule)
+app.get("/contact", userController.contact))
+app.post("/contact", userController.contactAdd)
 
-app.get("/eventRegistration/:id", wrapAsync(userController.eventRegistration))
-app.post("/eventRegistration/:id", upload.single('event[fees]'), wrapAsync(userController.eventRegistrationAdd));
+app.get("/eventRegistration/:id", userController.eventRegistration))
+app.post("/eventRegistration/:id", upload.single('event[fees]'), userController.eventRegistrationAdd)
 
-app.get("/conferRegistration/:id", wrapAsync(userController.conferRegistration))
-app.post("/conferRegistration/:id", upload.single('confer[fees]'), wrapAsync(userController.conferRegistrationAdd));
+app.get("/conferRegistration/:id", userController.conferRegistration))
+app.post("/conferRegistration/:id", upload.single('confer[fees]'), userController.conferRegistrationAdd)
 
-app.get("/webinarRegistration/:id", wrapAsync(userController.webinarRegistration))
-app.post("/webinarRegistration/:id", wrapAsync(userController.webinarRegistrationAdd));
+app.get("/webinarRegistration/:id", userController.webinarRegistration)
+app.post("/webinarRegistration/:id", userController.webinarRegistrationAdd)
 
-app.get("/workshopRegistration/:id", wrapAsync(userController.workshopRegistration))
-app.post("/workshopRegistration/:id", upload.single('workshop[fees]'), wrapAsync(userController.workshopRegistrationAdd));
+app.get("/workshopRegistration/:id", userController.workshopRegistration)
+app.post("/workshopRegistration/:id", upload.single('workshop[fees]'), userController.workshopRegistrationAdd)
 /* USER ROUTES ENDS HERE */
 
 
@@ -165,10 +165,10 @@ app.post("/workshopRegistration/:id", upload.single('workshop[fees]'), wrapAsync
 
 /* LOGIN AND SIGNUP , CHANGE PASSWORD PANEL FOR ADMIN STARTS HERE */
 app.get("/admin", authController.adminLoginPage);
-app.post('/login', passport.authenticate('local', { failureRedirect: '/', failureFlash: true }), wrapAsync(authController.adminLoginCheck));
+app.post('/login', passport.authenticate('local', { failureRedirect: '/', failureFlash: true }), authController.adminLoginCheck)
 app.get("/signUp", authController.adminSignUpPage);
-app.post("/signUp", wrapAsync(authController.adminSignUpRegister));
-app.get("/changePassword", AuthMiddle.isLoggedIn, wrapAsync(authController.adminChangePasswordPage));
+app.post("/signUp", authController.adminSignUpRegister)
+app.get("/changePassword", AuthMiddle.isLoggedIn, authController.adminChangePasswordPage)
 app.post("/changePassword/:id", AuthMiddle.isLoggedIn, authController.adminChangePasswordUpdate);
 app.get("/logout", AuthMiddle.isLoggedIn, authController.adminLogout);
 /* LOGIN AND SIGNUP , CHANGE PASSWORD PANEL FOR ADMIN ENDS HERE */
@@ -184,53 +184,53 @@ app.get("/logout", AuthMiddle.isLoggedIn, authController.adminLogout);
 /* DASHBAORD ROUTE */
 app.get("/dashboard", AuthMiddle.isLoggedIn, dashboardController.dashboard);
 /* CONTACT US ROUTE */
-app.get("/contactAdmin", AuthMiddle.isLoggedIn, wrapAsync(dashboardController.contactUs));
-app.get("/showContact/:id", AuthMiddle.isLoggedIn, wrapAsync(dashboardController.showContact));
-app.get("/deleteContact/:id", AuthMiddle.isLoggedIn, wrapAsync(dashboardController.deleteContact));
-app.get("/replyContact/:id", AuthMiddle.isLoggedIn, wrapAsync(dashboardController.replyContact));
+app.get("/contactAdmin", AuthMiddle.isLoggedIn, dashboardController.contactUs)
+app.get("/showContact/:id", AuthMiddle.isLoggedIn, dashboardController.showContact)
+app.get("/deleteContact/:id", AuthMiddle.isLoggedIn, dashboardController.deleteContact)
+app.get("/replyContact/:id", AuthMiddle.isLoggedIn, dashboardController.replyContact)
 /* INDEX ROUTE */
-app.get("/eventAdmin", AuthMiddle.isLoggedIn, wrapAsync(eventController.index));
-app.get("/conferAdmin", AuthMiddle.isLoggedIn, wrapAsync(conferController.index));
-app.get("/webinarAdmin", AuthMiddle.isLoggedIn, wrapAsync(webinarController.index));
-app.get("/workshopAdmin", AuthMiddle.isLoggedIn, wrapAsync(workshopController.index));
+app.get("/eventAdmin", AuthMiddle.isLoggedIn, eventController.index)
+app.get("/conferAdmin", AuthMiddle.isLoggedIn, conferController.index)
+app.get("/webinarAdmin", AuthMiddle.isLoggedIn, webinarController.index)
+app.get("/workshopAdmin", AuthMiddle.isLoggedIn, workshopController.index)
 /* UPDATE ROUTE */
-app.get("/editEventAdmin/:id", AuthMiddle.isLoggedIn, wrapAsync(eventController.editGet));
-app.post("/editEventAdmin/:id", AuthMiddle.isLoggedIn, upload.single('event[photo]'), wrapAsync(eventController.editPost));
-app.get("/editConferAdmin/:id", AuthMiddle.isLoggedIn, wrapAsync(conferController.editGet));
-app.post("/editConferAdmin/:id", AuthMiddle.isLoggedIn, upload.single('confer[photo]'), wrapAsync(conferController.editPost));
-app.get("/editWebinarAdmin/:id", AuthMiddle.isLoggedIn, wrapAsync(webinarController.editGet));
-app.post("/editWebinarAdmin/:id", AuthMiddle.isLoggedIn, upload.single('webinar[photo]'), wrapAsync(webinarController.editPost));
-app.get("/editWorkshopAdmin/:id", AuthMiddle.isLoggedIn, wrapAsync(workshopController.editGet));
-app.post("/editWorkshopAdmin/:id", AuthMiddle.isLoggedIn, upload.single('workshop[photo]'), wrapAsync(workshopController.editPost));
+app.get("/editEventAdmin/:id", AuthMiddle.isLoggedIn, eventController.editGet)
+app.post("/editEventAdmin/:id", AuthMiddle.isLoggedIn, upload.single('event[photo]'), eventController.editPost)
+app.get("/editConferAdmin/:id", AuthMiddle.isLoggedIn, conferController.editGet)
+app.post("/editConferAdmin/:id", AuthMiddle.isLoggedIn, upload.single('confer[photo]'), conferController.editPost)
+app.get("/editWebinarAdmin/:id", AuthMiddle.isLoggedIn, webinarController.editGet)
+app.post("/editWebinarAdmin/:id", AuthMiddle.isLoggedIn, upload.single('webinar[photo]'), webinarController.editPost)
+app.get("/editWorkshopAdmin/:id", AuthMiddle.isLoggedIn, workshopController.editGet)
+app.post("/editWorkshopAdmin/:id", AuthMiddle.isLoggedIn, upload.single('workshop[photo]'), workshopController.editPost)
 /* CREATE ROUTE */
-app.get("/addEventAdmin", AuthMiddle.isLoggedIn, wrapAsync(eventController.addGet));
-app.post("/addEventAdmin", AuthMiddle.isLoggedIn, upload.single('event[photo]'), wrapAsync(eventController.addPost))
-app.get("/addConferAdmin", AuthMiddle.isLoggedIn, wrapAsync(conferController.addGet));
-app.post("/addConferAdmin", AuthMiddle.isLoggedIn, upload.single('confer[photo]'), wrapAsync(conferController.addPost))
-app.get("/addWebinarAdmin", AuthMiddle.isLoggedIn, wrapAsync(webinarController.addGet));
-app.post("/addWebinarAdmin", AuthMiddle.isLoggedIn, upload.single('webinar[photo]'), wrapAsync(webinarController.addPost))
-app.get("/addWorkshopAdmin", AuthMiddle.isLoggedIn, wrapAsync(workshopController.addGet));
-app.post("/addWorkshopAdmin", AuthMiddle.isLoggedIn, upload.single('workshop[photo]'), wrapAsync(workshopController.addPost))
+app.get("/addEventAdmin", AuthMiddle.isLoggedIn, eventController.addGet)
+app.post("/addEventAdmin", AuthMiddle.isLoggedIn, upload.single('event[photo]'), eventController.addPost)
+app.get("/addConferAdmin", AuthMiddle.isLoggedIn, conferController.addGet)
+app.post("/addConferAdmin", AuthMiddle.isLoggedIn, upload.single('confer[photo]'), conferController.addPost)
+app.get("/addWebinarAdmin", AuthMiddle.isLoggedIn, webinarController.addGet)
+app.post("/addWebinarAdmin", AuthMiddle.isLoggedIn, upload.single('webinar[photo]'), webinarController.addPost)
+app.get("/addWorkshopAdmin", AuthMiddle.isLoggedIn, workshopController.addGet)
+app.post("/addWorkshopAdmin", AuthMiddle.isLoggedIn, upload.single('workshop[photo]'), workshopController.addPost)
 /* SHOW ROUTE */
-app.get("/viewEventAdmin/:id", AuthMiddle.isLoggedIn, wrapAsync(eventController.view));
-app.get("/viewConferAdmin/:id", AuthMiddle.isLoggedIn, wrapAsync(conferController.view));
-app.get("/viewWebinarAdmin/:id", AuthMiddle.isLoggedIn, wrapAsync(webinarController.view));
-app.get("/viewWorkshopAdmin/:id", AuthMiddle.isLoggedIn, wrapAsync(workshopController.view));
+app.get("/viewEventAdmin/:id", AuthMiddle.isLoggedIn, eventController.view)
+app.get("/viewConferAdmin/:id", AuthMiddle.isLoggedIn, conferController.view)
+app.get("/viewWebinarAdmin/:id", AuthMiddle.isLoggedIn, webinarController.view)
+app.get("/viewWorkshopAdmin/:id", AuthMiddle.isLoggedIn, workshopController.view)
 /* DELETE ROUTE */
-app.get("/deleteEventAdmin/:id", AuthMiddle.isLoggedIn, wrapAsync(eventController.destroyEvent));
-app.get("/deleteConferAdmin/:id", AuthMiddle.isLoggedIn, wrapAsync(conferController.destroyConfer));
-app.get("/deleteWebinarAdmin/:id", AuthMiddle.isLoggedIn, wrapAsync(webinarController.destroyWebinar));
-app.get("/deleteWorkshopAdmin/:id", AuthMiddle.isLoggedIn, wrapAsync(workshopController.destroyWorkshop));
+app.get("/deleteEventAdmin/:id", AuthMiddle.isLoggedIn, eventController.destroyEvent)
+app.get("/deleteConferAdmin/:id", AuthMiddle.isLoggedIn, conferController.destroyConfer)
+app.get("/deleteWebinarAdmin/:id", AuthMiddle.isLoggedIn, webinarController.destroyWebinar)
+app.get("/deleteWorkshopAdmin/:id", AuthMiddle.isLoggedIn, workshopController.destroyWorkshop)
 /* REGISTRATION LIST ROUTE */
-app.get("/registrationEventAdmin/:id", AuthMiddle.isLoggedIn, wrapAsync(eventController.registrationEvent));
-app.get("/registrationConferAdmin/:id", AuthMiddle.isLoggedIn, wrapAsync(conferController.registrationConfer))
-app.get("/registrationWebinarAdmin/:id", AuthMiddle.isLoggedIn, wrapAsync(webinarController.registrationWebinar))
-app.get("/registrationWorkshopAdmin/:id", AuthMiddle.isLoggedIn, wrapAsync(workshopController.registrationWorkshop))
+app.get("/registrationEventAdmin/:id", AuthMiddle.isLoggedIn, eventController.registrationEvent)
+app.get("/registrationConferAdmin/:id", AuthMiddle.isLoggedIn, conferController.registrationConfer)
+app.get("/registrationWebinarAdmin/:id", AuthMiddle.isLoggedIn, webinarController.registrationWebinar)
+app.get("/registrationWorkshopAdmin/:id", AuthMiddle.isLoggedIn, workshopController.registrationWorkshop)
 /* SPEAKER ROUTE */
-app.get("/speakers", AuthMiddle.isLoggedIn, wrapAsync(dashboardController.speakerIndex));
-app.get("/addSpeaker", AuthMiddle.isLoggedIn, wrapAsync(dashboardController.speakerAddGet));
-app.post("/addSpeaker", AuthMiddle.isLoggedIn, upload.single('speaker[photo]'), wrapAsync(dashboardController.speakerAddPost));
-app.get("/speakerDelete/:id", AuthMiddle.isLoggedIn, wrapAsync(dashboardController.speakerDelete));
+app.get("/speakers", AuthMiddle.isLoggedIn, dashboardController.speakerIndex)
+app.get("/addSpeaker", AuthMiddle.isLoggedIn, dashboardController.speakerAddGet)
+app.post("/addSpeaker", AuthMiddle.isLoggedIn, upload.single('speaker[photo]'), dashboardController.speakerAddPost)
+app.get("/speakerDelete/:id", AuthMiddle.isLoggedIn, dashboardController.speakerDelete)
 /** ADMIN ROUTES ENDS HERE */
 
 
